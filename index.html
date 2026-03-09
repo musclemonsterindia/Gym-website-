@@ -1,77 +1,175 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Muscle Monster Gym</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<title>Muscle Monster Gym</title>
+
 <style>
 
-body{
+*{
 margin:0;
+padding:0;
+box-sizing:border-box;
 font-family:Arial;
-background:black;
-color:white;
-text-align:center;
 }
 
-nav{
-background:#111;
-padding:15px;
+body{
+background:#0a0a0a;
+color:white;
+}
+
+/* NAVBAR */
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
+background:rgba(0,0,0,0.8);
+backdrop-filter:blur(10px);
 position:sticky;
 top:0;
 }
 
-nav a{
-color:white;
-margin:10px;
-text-decoration:none;
-font-size:18px;
+.logo{
+font-size:24px;
+font-weight:bold;
+color:#ff2e2e;
 }
 
+nav a{
+color:white;
+margin-left:20px;
+text-decoration:none;
+font-size:16px;
+}
+
+/* HERO */
+
 .hero{
-padding:120px 20px;
-background:url('IMG20260221193356.jpg');
-background-size:cover;
-background-position:center;
+height:95vh;
+background:url("https://images.unsplash.com/photo-1534438327276-14e5300c3a48") center/cover;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
 }
 
 .hero h1{
-font-size:40px;
+font-size:65px;
+}
+
+.hero p{
+font-size:20px;
+margin-top:10px;
 }
 
 .btn{
-background:red;
-padding:12px 25px;
+background:#ff2e2e;
 border:none;
+padding:12px 30px;
 color:white;
 font-size:18px;
+margin-top:20px;
+cursor:pointer;
 border-radius:5px;
 }
 
-.section{
-padding:60px 20px;
+/* SECTIONS */
+
+section{
+padding:90px 10%;
+text-align:center;
+}
+
+.cards{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:30px;
+margin-top:40px;
+}
+
+.card{
+background:#161616;
+padding:25px;
+border-radius:12px;
+width:260px;
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 20px rgba(255,0,0,0.5);
+}
+
+.price{
+font-size:30px;
+color:#ff2e2e;
+margin:10px;
+}
+
+/* TRAINERS */
+
+.trainer img{
+width:100%;
+border-radius:10px;
+}
+
+/* GALLERY */
+
+.gallery{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:15px;
+margin-top:30px;
 }
 
 .gallery img{
 width:250px;
-margin:10px;
 border-radius:10px;
 }
 
-.card{
-background:#1a1a1a;
+/* REVIEWS */
+
+.review{
+background:#161616;
 padding:20px;
-margin:10px;
 border-radius:10px;
-display:inline-block;
-width:220px;
+width:280px;
 }
+
+/* FORM */
 
 input,select{
 padding:10px;
-margin:5px;
-width:200px;
+margin:8px;
+width:220px;
+}
+
+/* FOOTER */
+
+footer{
+background:#111;
+padding:40px;
+text-align:center;
+}
+
+/* WHATSAPP */
+
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+padding:15px;
+border-radius:50%;
+font-size:22px;
+color:white;
+text-decoration:none;
 }
 
 </style>
@@ -80,121 +178,248 @@ width:200px;
 
 <body>
 
+<header>
+
+<div class="logo">Muscle Monster</div>
+
 <nav>
 
 <a href="#">Home</a>
+<a href="#services">Services</a>
+<a href="#trainers">Trainers</a>
+<a href="#plans">Plans</a>
 <a href="#gallery">Gallery</a>
-<a href="#trainer">Trainer</a>
-<a href="#membership">Membership</a>
+<a href="#reviews">Reviews</a>
 <a href="#contact">Contact</a>
 
 </nav>
 
+</header>
+
+<!-- HERO -->
+
 <div class="hero">
 
-<h1>Muscle Monster Gym</h1>
-<p>Transform Your Body. Build Strength.</p>
+<div>
 
-<a href="#membership">
+<h1>Build Your Dream Body</h1>
+
+<p>Join Muscle Monster Gym Today</p>
+
 <button class="btn">Join Now</button>
-</a>
-
-</div>
-
-<div class="section">
-
-<h2>Why Choose Us</h2>
-
-<p>Best equipment, powerful workout programs and certified trainers.</p>
-
-</div>
-
-<div class="section" id="gallery">
-
-<h2>Gym Gallery</h2>
-
-<div class="gallery">
-
-<img src="IMG20260221193356.jpg">
-<img src="IMG20260221193356.jpg">
-<img src="IMG20260221193356.jpg">
 
 </div>
 
 </div>
 
-<div class="section" id="trainer">
+<!-- SERVICES -->
 
-<h2>Our Trainer</h2>
+<section id="services">
+
+<h2>Our Services</h2>
+
+<div class="cards">
 
 <div class="card">
 
-<img src="IMG20260221193356.jpg" width="100%" style="border-radius:10px">
+<h3>Weight Training</h3>
 
-<h3>Srijal (Golu)</h3>
+<p>Latest machines for strength building.</p>
+
+</div>
+
+<div class="card">
+
+<h3>Cardio Training</h3>
+
+<p>Improve stamina and endurance.</p>
+
+</div>
+
+<div class="card">
+
+<h3>Personal Training</h3>
+
+<p>Professional trainers guide you.</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- TRAINERS -->
+
+<section id="trainers">
+
+<h2>Our Trainers</h2>
+
+<div class="cards">
+
+<div class="card trainer">
+
+<img src="https://images.unsplash.com/photo-1599058917765-a780eda07a3e">
+
+<h3>Srijal</h3>
 
 <p>Certified Fitness Trainer</p>
 
 </div>
 
+<div class="card trainer">
+
+<img src="https://images.unsplash.com/photo-1579758629938-03607ccdbaba">
+
+<h3>Rahul</h3>
+
+<p>Strength Coach</p>
+
 </div>
 
-<div class="section" id="membership">
+</div>
+
+</section>
+
+<!-- PLANS -->
+
+<section id="plans">
 
 <h2>Membership Plans</h2>
 
-<h3>1 Month - ₹1000</h3>
+<div class="cards">
 
-<a href="upi://pay?pa=YOURUPIID@upi&pn=MuscleMonsterGym&am=1000&cu=INR">
-<button class="btn">Pay Now</button>
-</a>
+<div class="card">
 
-<br><br>
+<h3>1 Month</h3>
 
-<h3>3 Months - ₹2500</h3>
+<div class="price">₹1000</div>
 
-<a href="upi://pay?pa=YOURUPIID@upi&pn=MuscleMonsterGym&am=2500&cu=INR">
-<button class="btn">Pay Now</button>
-</a>
-
-<br><br>
-
-<h3>1 Year - ₹8000</h3>
-
-<a href="upi://pay?pa=YOURUPIID@upi&pn=MuscleMonsterGym&am=8000&cu=INR">
-<button class="btn">Pay Now</button>
-</a>
+<button class="btn">Join</button>
 
 </div>
 
-<div class="section">
+<div class="card">
 
-<h2>BMI Calculator</h2>
+<h3>3 Months</h3>
 
-<input id="w" placeholder="Weight kg">
+<div class="price">₹2500</div>
+
+<button class="btn">Join</button>
+
+</div>
+
+<div class="card">
+
+<h3>1 Year</h3>
+
+<div class="price">₹8000</div>
+
+<button class="btn">Join</button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- JOIN FORM -->
+
+<section>
+
+<h2>Join The Gym</h2>
+
+<form>
+
+<input type="text" placeholder="Full Name">
+
 <br>
 
-<input id="h" placeholder="Height cm">
+<input type="tel" placeholder="Phone Number">
 
-<br><br>
+<br>
 
-<button onclick="bmi()" class="btn">Calculate</button>
+<select>
 
-<p id="result"></p>
+<option>Select Plan</option>
+<option>1 Month</option>
+<option>3 Months</option>
+<option>1 Year</option>
+
+</select>
+
+<br>
+
+<button class="btn">Submit</button>
+
+</form>
+
+</section>
+
+<!-- GALLERY -->
+
+<section id="gallery">
+
+<h2>Gym Gallery</h2>
+
+<div class="gallery">
+
+<img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61">
+<img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd">
+<img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f">
 
 </div>
 
-<div class="section" id="contact">
+</section>
+
+<!-- REVIEWS -->
+
+<section id="reviews">
+
+<h2>Client Reviews</h2>
+
+<div class="cards">
+
+<div class="review">
+
+⭐ ⭐ ⭐ ⭐ ⭐  
+Best gym and trainers.
+
+</div>
+
+<div class="review">
+
+⭐ ⭐ ⭐ ⭐ ⭐  
+Great equipment and environment.
+
+</div>
+
+<div class="review">
+
+⭐ ⭐ ⭐ ⭐ ⭐  
+Amazing transformation results.
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
 
 <h2>Contact Us</h2>
 
-<p>Phone: 9625356627</p>
+<p>📞 9625356627</p>
 
-<p>Location: Begumpur Delhi</p>
+<p>📍 Begumpur Delhi</p>
 
-<a href="https://wa.me/919625356627">
-<button class="btn">WhatsApp Us</button>
-</a>
+<button class="btn"
+onclick="window.location.href='https://wa.me/919625356627'">
+
+WhatsApp
+
+</button>
 
 <br><br>
 
@@ -202,43 +427,19 @@ width:200px;
 width="90%"
 height="300"
 style="border:0"
-loading="lazy"
 src="https://maps.google.com/maps?q=Begumpur%20Delhi&t=&z=13&ie=UTF8&iwloc=&output=embed">
+
 </iframe>
 
-</div>
+</section>
 
-<a href="https://wa.me/919625356627"
-style="
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25D366;
-color:white;
-padding:15px;
-border-radius:50%;
-font-size:20px;
-text-decoration:none;
-">
+<footer>
 
-💬
+<p>© 2026 Muscle Monster Gym</p>
 
-</a>
+</footer>
 
-<script>
-
-function bmi(){
-
-var w=document.getElementById("w").value;
-var h=document.getElementById("h").value/100;
-
-var b=w/(h*h);
-
-document.getElementById("result").innerHTML="Your BMI: "+b.toFixed(1);
-
-}
-
-</script>
+<a class="whatsapp" href="https://wa.me/919625356627">💬</a>
 
 </body>
-</html>
+</html>f
