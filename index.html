@@ -2,15 +2,243 @@
 <html>
 <head>
 <title>Muscle Monster Gym</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:black;
+color:white;
+text-align:center;
+}
+
+nav{
+background:#111;
+padding:15px;
+position:sticky;
+top:0;
+}
+
+nav a{
+color:white;
+margin:10px;
+text-decoration:none;
+font-size:18px;
+}
+
+.hero{
+padding:120px 20px;
+background:url('IMG20260221193356.jpg');
+background-size:cover;
+background-position:center;
+}
+
+.hero h1{
+font-size:40px;
+}
+
+.btn{
+background:red;
+padding:12px 25px;
+border:none;
+color:white;
+font-size:18px;
+border-radius:5px;
+}
+
+.section{
+padding:60px 20px;
+}
+
+.gallery img{
+width:250px;
+margin:10px;
+border-radius:10px;
+}
+
+.card{
+background:#1a1a1a;
+padding:20px;
+margin:10px;
+border-radius:10px;
+display:inline-block;
+width:220px;
+}
+
+input,select{
+padding:10px;
+margin:5px;
+width:200px;
+}
+
+</style>
+
 </head>
 
-<body style="background:black;color:white;text-align:center;font-family:Arial">
+<body>
 
-<h1 style="color:red;margin-top:100px;">Muscle Monster Gym</h1>
+<nav>
 
-<p>Official Website of Muscle Monster Gym 💪</p>
+<a href="#">Home</a>
+<a href="#gallery">Gallery</a>
+<a href="#trainer">Trainer</a>
+<a href="#membership">Membership</a>
+<a href="#contact">Contact</a>
 
-<p>Fitness | Training | Body Transformation</p>
-<img src="IMG20260221193356.jpg" width="300">
+</nav>
+
+<div class="hero">
+
+<h1>Muscle Monster Gym</h1>
+<p>Transform Your Body. Build Strength.</p>
+
+<a href="#membership">
+<button class="btn">Join Now</button>
+</a>
+
+</div>
+
+<div class="section">
+
+<h2>Why Choose Us</h2>
+
+<p>Best equipment, powerful workout programs and certified trainers.</p>
+
+</div>
+
+<div class="section" id="gallery">
+
+<h2>Gym Gallery</h2>
+
+<div class="gallery">
+
+<img src="IMG20260221193356.jpg">
+<img src="IMG20260221193356.jpg">
+<img src="IMG20260221193356.jpg">
+
+</div>
+
+</div>
+
+<div class="section" id="trainer">
+
+<h2>Our Trainer</h2>
+
+<div class="card">
+
+<img src="IMG20260221193356.jpg" width="100%" style="border-radius:10px">
+
+<h3>Srijal (Golu)</h3>
+
+<p>Certified Fitness Trainer</p>
+
+</div>
+
+</div>
+
+<div class="section" id="membership">
+
+<h2>Membership Plans</h2>
+
+<h3>1 Month - ₹1000</h3>
+
+<a href="upi://pay?pa=YOURUPIID@upi&pn=MuscleMonsterGym&am=1000&cu=INR">
+<button class="btn">Pay Now</button>
+</a>
+
+<br><br>
+
+<h3>3 Months - ₹2500</h3>
+
+<a href="upi://pay?pa=YOURUPIID@upi&pn=MuscleMonsterGym&am=2500&cu=INR">
+<button class="btn">Pay Now</button>
+</a>
+
+<br><br>
+
+<h3>1 Year - ₹8000</h3>
+
+<a href="upi://pay?pa=YOURUPIID@upi&pn=MuscleMonsterGym&am=8000&cu=INR">
+<button class="btn">Pay Now</button>
+</a>
+
+</div>
+
+<div class="section">
+
+<h2>BMI Calculator</h2>
+
+<input id="w" placeholder="Weight kg">
+<br>
+
+<input id="h" placeholder="Height cm">
+
+<br><br>
+
+<button onclick="bmi()" class="btn">Calculate</button>
+
+<p id="result"></p>
+
+</div>
+
+<div class="section" id="contact">
+
+<h2>Contact Us</h2>
+
+<p>Phone: 9625356627</p>
+
+<p>Location: Begumpur Delhi</p>
+
+<a href="https://wa.me/919625356627">
+<button class="btn">WhatsApp Us</button>
+</a>
+
+<br><br>
+
+<iframe
+width="90%"
+height="300"
+style="border:0"
+loading="lazy"
+src="https://maps.google.com/maps?q=Begumpur%20Delhi&t=&z=13&ie=UTF8&iwloc=&output=embed">
+</iframe>
+
+</div>
+
+<a href="https://wa.me/919625356627"
+style="
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+padding:15px;
+border-radius:50%;
+font-size:20px;
+text-decoration:none;
+">
+
+💬
+
+</a>
+
+<script>
+
+function bmi(){
+
+var w=document.getElementById("w").value;
+var h=document.getElementById("h").value/100;
+
+var b=w/(h*h);
+
+document.getElementById("result").innerHTML="Your BMI: "+b.toFixed(1);
+
+}
+
+</script>
+
 </body>
 </html>
