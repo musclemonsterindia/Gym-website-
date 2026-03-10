@@ -1,455 +1,314 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MUSCLE MONSTER GYM · unisex · 3D animation</title>
-    <!-- Font Awesome 6 (free) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Google Fonts (inter, plus some display) -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,800&family=Poppins:wght@700;900&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background: #0b0c10;
-            color: #f0f3f8;
-            line-height: 1.5;
-            perspective: 1200px;
-            overflow-x: hidden;
-        }
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Muscle Monster Gym</title>
 
-        /* 3D layered background effect */
-        .bg-3d-void {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at 30% 40%, #1a1e2b, #030405);
-            transform-style: preserve-3d;
-            z-index: -2;
-        }
+<style>
 
-        .bg-3d-void::after {
-            content: '';
-            position: absolute;
-            width: 200%; height: 200%;
-            top: -50%; left: -50%;
-            background: repeating-linear-gradient(45deg, rgba(255, 215, 0, 0.01) 0px, rgba(255, 215, 0, 0.01) 2px, transparent 2px, transparent 12px);
-            transform: rotateX(45deg) translateZ(-50px);
-            animation: slideBg 60s linear infinite;
-            pointer-events: none;
-        }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+}
 
-        @keyframes slideBg {
-            0% { transform: rotateX(45deg) translateZ(-50px) translateY(0); }
-            100% { transform: rotateX(45deg) translateZ(-50px) translateY(200px); }
-        }
+body{
+background:#0a0a0a;
+color:white;
+}
 
-        /* floating 3D card / glow */
-        .glass-3d {
-            background: rgba(20, 25, 38, 0.7);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 215, 0, 0.15);
-            border-radius: 2rem;
-            box-shadow: 0 30px 40px -20px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,215,0,0.1) inset, 0 0 30px rgba(255, 215, 0, 0.2);
-            transform-style: preserve-3d;
-            transition: transform 0.2s ease, box-shadow 0.3s;
-        }
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
+background:rgba(0,0,0,0.8);
+position:sticky;
+top:0;
+}
 
-        .glass-3d:hover {
-            box-shadow: 0 40px 60px -15px #000, 0 0 0 2px rgba(255,215,0,0.3) inset, 0 0 45px #ffc10755;
-            transform: translateZ(15px) rotateX(2deg) rotateY(1deg);
-        }
+.logo{
+font-size:24px;
+font-weight:bold;
+color:#ff2e2e;
+}
 
-        /* wrapper for 5 pages (flex columns) */
-        .site-wrapper {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 2rem 1.5rem;
-            position: relative;
-            z-index: 5;
-        }
+nav a{
+color:white;
+margin-left:20px;
+text-decoration:none;
+font-size:16px;
+}
 
-        /* logo monster style */
-        .logo-block {
-            display: flex;
-            align-items: center;
-            gap: 1.2rem;
-            flex-wrap: wrap;
-        }
+.hero{
+height:95vh;
+background:url("https://images.unsplash.com/photo-1534438327276-14e5300c3a48") center/cover;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+}
 
-        .logo-3d {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 900;
-            font-size: 3rem;
-            background: linear-gradient(145deg, #f5cb5c, #f5b81b);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-shadow: 0 0 8px #ffb700, 0 10px 20px #00000080;
-            transform: translateZ(25px) scale(1.02);
-            display: inline-block;
-            animation: pulse3d 3s infinite alternate;
-        }
+.hero h1{
+font-size:60px;
+}
 
-        @keyframes pulse3d {
-            0% { text-shadow: 0 0 8px #f90, 0 5px 15px #000; transform: translateZ(20px) scale(1); }
-            100% { text-shadow: 0 0 18px #fd0, 0 15px 25px #000; transform: translateZ(40px) scale(1.03); }
-        }
+.hero p{
+font-size:20px;
+margin-top:10px;
+}
 
-        .gym-name {
-            font-size: 2.2rem;
-            font-weight: 800;
-            letter-spacing: 3px;
-            background: linear-gradient(135deg, #eee, #ffdb7c);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            border-left: 5px solid #f3b82e;
-            padding-left: 1.2rem;
-        }
+.btn{
+background:#ff2e2e;
+border:none;
+padding:12px 30px;
+color:white;
+font-size:18px;
+margin-top:20px;
+cursor:pointer;
+border-radius:5px;
+}
 
-        /* address & payment pills */
-        .info-panel {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.5rem 2.5rem;
-            background: rgba(0,0,0,0.35);
-            border-radius: 60px;
-            padding: 0.8rem 2rem;
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255,215,0,0.25);
-            margin: 2rem 0 1.5rem 0;
-            justify-content: center;
-        }
+section{
+padding:90px 10%;
+text-align:center;
+}
 
-        .info-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.2rem;
-            font-weight: 500;
-        }
+.cards{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:30px;
+margin-top:40px;
+}
 
-        .info-item i {
-            color: #fdcc4a;
-            font-size: 1.6rem;
-            filter: drop-shadow(0 0 5px gold);
-        }
+.card{
+background:#161616;
+padding:25px;
+border-radius:12px;
+width:260px;
+transition:0.3s;
+}
 
-        .qr-symbol {
-            background: #1f1a0e;
-            padding: 0.2rem 0.9rem;
-            border-radius: 40px;
-            font-family: monospace;
-            font-weight: bold;
-            border: 1px solid #fdcc4a;
-            color: #fdcc4a;
-        }
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 20px rgba(255,0,0,0.5);
+}
 
-        /* 5 pages GRID (simulated pages as cards) */
-        .pages-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-            gap: 25px;
-            margin: 3rem 0 4rem;
-            perspective: 1500px;
-        }
+.price{
+font-size:30px;
+color:#ff2e2e;
+margin:10px;
+}
 
-        .page-card {
-            background: rgba(18, 22, 35, 0.8);
-            backdrop-filter: blur(5px);
-            border-radius: 30px;
-            padding: 2rem 1.5rem;
-            border: 1px solid rgba(255, 200, 50, 0.25);
-            transform-style: preserve-3d;
-            transition: all 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.2);
-            box-shadow: 0 20px 30px -15px black;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            transform: rotateY(0deg) translateZ(10px);
-        }
+.gallery{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:15px;
+margin-top:30px;
+}
 
-        .page-card:hover {
-            transform: translateY(-15px) rotateX(3deg) rotateY(5deg) translateZ(25px);
-            border-color: #f9b81b;
-            box-shadow: 0 30px 35px -10px #000, 0 0 25px #f9b81b55;
-        }
+.gallery img{
+width:250px;
+border-radius:10px;
+}
 
-        .page-icon {
-            font-size: 3.3rem;
-            margin-bottom: 1.3rem;
-            color: #f8c150;
-            filter: drop-shadow(0 8px 12px #000) drop-shadow(0 0 8px #f90);
-        }
+.review{
+background:#161616;
+padding:20px;
+border-radius:10px;
+width:280px;
+}
 
-        .page-title {
-            font-size: 1.8rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            background: linear-gradient(white, #ddd);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            margin-bottom: 0.5rem;
-        }
+footer{
+background:#111;
+padding:40px;
+text-align:center;
+}
 
-        .page-desc {
-            font-size: 1rem;
-            opacity: 0.8;
-            margin-bottom: 1.5rem;
-        }
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+padding:15px;
+border-radius:50%;
+font-size:22px;
+color:white;
+text-decoration:none;
+}
 
-        .price-tag {
-            background: #00000055;
-            border-radius: 60px;
-            padding: 0.5rem 1.5rem;
-            font-weight: 700;
-            font-size: 1.7rem;
-            border: 1px solid #f1c232;
-            color: #ffe484;
-            display: inline-block;
-            backdrop-filter: blur(4px);
-            margin-top: auto;
-        }
+</style>
 
-        /* big cta / fee display 500 */
-        .fee-glow {
-            background: rgba(0,0,0,0.6);
-            border-radius: 80px;
-            padding: 1rem 3rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 20px;
-            border: 2px solid #f5b42b;
-            box-shadow: 0 0 40px #f90a, 0 20px 35px -5px #000;
-            margin: 2rem 0;
-            transform-style: preserve-3d;
-            animation: float3d 4s infinite alternate;
-        }
-
-        @keyframes float3d {
-            0% { transform: translateZ(10px) rotateX(0deg); }
-            100% { transform: translateZ(35px) rotateX(2deg) rotateY(-2deg); }
-        }
-
-        .fee-number {
-            font-size: 4.5rem;
-            font-weight: 900;
-            line-height: 1;
-            background: linear-gradient(180deg, #ffdb7e, #e59b0b);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .fee-text {
-            font-size: 1.7rem;
-            font-weight: 600;
-        }
-
-        /* payment methods card (mirror srijal) */
-        .payment-strip {
-            background: rgba(255,215,0,0.05);
-            border-radius: 60px;
-            padding: 1rem 2rem;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: center;
-            gap: 30px;
-            border: 1px dashed #ffd966;
-            margin-top: 2.5rem;
-        }
-
-        .payment-method-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 1.5rem;
-        }
-
-        .upi-handle {
-            background: #0f0e12;
-            padding: 0.6rem 1.5rem;
-            border-radius: 100px;
-            font-family: monospace;
-            border: 1px solid #f3b347;
-            color: #ffd966;
-            font-size: 1.2rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-        }
-
-        .monster-tag {
-            font-size: 1rem;
-            background: #2d281c;
-            padding: 0.2rem 1rem;
-            border-radius: 30px;
-            color: #ffe499;
-        }
-
-        /* address block (exact from OCR) */
-        .address-3d {
-            background: rgba(10, 10, 18, 0.7);
-            border-radius: 40px;
-            padding: 1.5rem 2rem;
-            border: 1px solid #dbb042;
-            transform: translateZ(15px);
-            box-shadow: 0 25px 30px -20px #000;
-            margin: 2.5rem 0 1rem;
-            font-size: 1.3rem;
-            text-align: center;
-            word-spacing: 2px;
-            backdrop-filter: blur(5px);
-        }
-
-        .address-3d i {
-            color: #f3b730;
-            margin-right: 15px;
-        }
-
-        hr {
-            border: 1px solid #ffd96633;
-            margin: 2rem 0;
-        }
-
-        /* 5 pages explicitly (for clarity) */
-        .section-tag {
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            opacity: 0.6;
-            margin-bottom: 0.5rem;
-        }
-
-        footer {
-            text-align: center;
-            padding: 3rem 0 1.5rem;
-            opacity: 0.7;
-            font-size: 0.95rem;
-        }
-
-        /* responsive */
-        @media (max-width: 700px) {
-            .logo-3d { font-size: 2.2rem; }
-            .gym-name { font-size: 1.6rem; }
-            .fee-number { font-size: 3rem; }
-        }
-    </style>
 </head>
+
 <body>
-    <div class="bg-3d-void"></div>
 
-    <div class="site-wrapper">
-        <!-- logo + header (contains both logos: text + monster) -->
-        <div class="logo-block glass-3d" style="padding: 1.5rem 2.5rem; border-radius: 100px;">
-            <span class="logo-3d"><i class="fas fa-dumbbell" style="color: #fbbf2f; text-shadow: 0 0 15px;"></i> 💪</span>
-            <span class="gym-name">MUSCLE MONSTER</span>
-            <span class="monster-tag"><i class="fa-solid fa-person-walking"></i> UNISEX · SINCE 2025</span>
-        </div>
+<header>
 
-        <!-- address & basic info panel (exact location) -->
-        <div class="info-panel">
-            <div class="info-item"><i class="fas fa-map-pin"></i> House no.258, D-Block, 15 futa Road, Ra eev Nagar, Begumpur, Delhi-86</div>
-            <div class="info-item"><i class="fas fa-credit-card"></i> <span class="qr-symbol">QR · UPI</span></div>
-            <div class="info-item"><i class="fas fa-clock"></i> 5AM – 11PM</div>
-        </div>
+<div class="logo">Muscle Monster</div>
 
-        <!-- MAIN 5 PAGES (as card grid) each card = one page of website -->
-        <div class="section-tag">— 5D PAGES / 3D IMMERSIVE —</div>
-        <div class="pages-grid">
-            <!-- page 1: HOME / ABOUT -->
-            <div class="page-card">
-                <div class="page-icon"><i class="fas fa-home"></i></div>
-                <div class="page-title">HOME</div>
-                <div class="page-desc">UNISEX · MONSTER ENERGY</div>
-                <p style="margin: 0.5rem 0; font-size: 0.9rem;">🔥 3D tour, results driven</p>
-                <div class="price-tag">#BEASTMODE</div>
-            </div>
-            <!-- page 2: MEMBERSHIP + FEE 500 -->
-            <div class="page-card" style="border-color: #ffbb33;">
-                <div class="page-icon"><i class="fas fa-id-card"></i></div>
-                <div class="page-title">PRICING</div>
-                <div class="page-desc">monthly · flexible</div>
-                <span style="font-size: 3rem; font-weight: 900; background: linear-gradient(145deg, #ffe18a, #f9a51a); -webkit-background-clip: text; background-clip: text; color: transparent;">₹500</span>
-                <span style="margin-top: 8px;"> / month</span>
-                <div class="price-tag" style="margin-top: 15px;">NO LOCK-IN</div>
-            </div>
-            <!-- page 3: FACILITIES / UNISEX -->
-            <div class="page-card">
-                <div class="page-icon"><i class="fas fa-dumbbell"></i></div>
-                <div class="page-title">EQUIPMENT</div>
-                <div class="page-desc">cardio · plates · squat rack</div>
-                <i class="fas fa-person-dress" style="color: gold;"></i> <i class="fas fa-person" style="color: silver;"></i>
-                <div class="price-tag">unisex zone</div>
-            </div>
-            <!-- page 4: PAYMENT METHODS (UPI exactly from image) -->
-            <div class="page-card">
-                <div class="page-icon"><i class="fas fa-qrcode"></i></div>
-                <div class="page-title">PAY</div>
-                <div class="page-desc">instant UPI · QR</div>
-                <div class="upi-handle" style="font-size: 1rem; padding: 0.3rem 1rem;">srijal@ybl</div>
-                <div style="background: #251f12; border-radius: 20px; padding: 0.5rem 1rem; margin-top: 10px; font-family: monospace;">9625356627-2@ybl</div>
-                <div class="price-tag" style="margin-top: 12px;"><i class="fa-regular fa-building"></i> BHIM/PAYTM</div>
-            </div>
-            <!-- page 5: CONTACT / ADDRESS + MONSTER -->
-            <div class="page-card">
-                <div class="page-icon"><i class="fas fa-location-dot"></i></div>
-                <div class="page-title">FIND US</div>
-                <div class="page-desc">258, D-Block, 15 futa Rd</div>
-                <address style="font-style: normal; font-size: 0.8rem; opacity: 0.9;">Ra eev Nagar, Begumpur, Delhi-86</address>
-                <i class="fas fa-map-marked-alt" style="color: #f3b730; font-size: 2rem;"></i>
-            </div>
-        </div>
+<nav>
 
-        <!-- BIG FEE DISPLAY (500 per month) with 3D animation -->
-        <div class="fee-glow">
-            <span class="fee-number">₹500</span>
-            <span class="fee-text">/month</span>
-            <i class="fas fa-bolt" style="color: #ffbb33; font-size: 2.5rem; filter: drop-shadow(0 0 10px gold);"></i>
-        </div>
+<a href="#">Home</a>
+<a href="#services">Services</a>
+<a href="#plans">Plans</a>
+<a href="#gallery">Gallery</a>
+<a href="#contact">Contact</a>
 
-        <!-- ADDRESS block again (prominent) exactly as given -->
-        <div class="address-3d glass-3d" style="border-radius: 50px;">
-            <i class="fas fa-location-arrow"></i> <strong>MUSCLE MONSTER GYM (UNISEX)</strong><br>
-            <span style="font-size: 1.2rem;">House no.258, D-Block, 15 futa Road, Ra eev Nagar, Begumpur, Delhi-86</span>
-        </div>
+</nav>
 
-        <!-- PAYMENT METHOD extra block: the exact upi + srijal details -->
-        <div class="payment-strip">
-            <span class="payment-method-item"><i class="fab fa-google-pay"></i> GPay / PhonePe</span>
-            <span class="payment-method-item"><i class="fas fa-circle-nodes"></i> UPI ID:</span>
-            <span class="upi-handle"><i class="fa-regular fa-copy"></i> 9625356627-2@ybl</span>
-            <span class="payment-method-item"><i class="fas fa-user"></i> Srijal (ac holder)</span>
-        </div>
+</header>
 
-        <!-- hidden note: two images data used (srijal upi & muscle monster gym) plus logo -->
-        <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; margin: 2rem 0 0.5rem;">
-            <span style="background: #26221a; padding: 0.4rem 1.8rem; border-radius: 60px;"><i class="fa-regular fa-image"></i> IMG_20260310_015811.jpg (UPI)</span>
-            <span style="background: #26221a; padding: 0.4rem 1.8rem; border-radius: 60px;"><i class="fa-regular fa-image"></i> IMG_20260310_015455.jpg (address)</span>
-            <span style="color: #ffd966;"><i class="fas fa-check-circle"></i> both embedded</span>
-        </div>
+<div class="hero">
 
-        <!-- extra gym logo representation -->
-        <div style="display: flex; gap: 25px; justify-content: center; margin: 2rem 0;">
-            <span style="font-size: 3rem;">🐉🏋️</span>
-            <span style="font-family: 'Poppins'; font-weight: 700; font-size: 2rem; background: linear-gradient(145deg, #b57c1a, #ffe484); -webkit-background-clip: text; background-clip: text; color: transparent;">M⚡NS†ER</span>
-        </div>
+<div>
 
-        <!-- small footer: ensures 5 pages + all necessary things -->
-        <hr>
-        <footer>
-            <i class="fas fa-crown" style="color: #fbb62e;"></i> 5-page professional gym website · 3D animated · ₹500/month · all necessary: address, payment, logo, unisex<br>
-            © MUSCLE MONSTER GYM · 258 D-Block, Begumpur · UPI: 9625356627-2@ybl (Srijal)
-        </footer>
-    </div>
+<h1>Build Your Dream Body</h1>
+
+<p>Join Muscle Monster Gym Today</p>
+
+<button class="btn"
+onclick="document.getElementById('plans').scrollIntoView();">
+Join Now
+</button>
+
+</div>
+
+</div>
+
+<section id="services">
+
+<h2>Gym Facilities</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>Weight Training</h3>
+<p>Latest machines for strength building.</p>
+</div>
+
+<div class="card">
+<h3>Cardio Zone</h3>
+<p>Improve stamina and burn calories.</p>
+</div>
+
+<div class="card">
+<h3>Personal Training</h3>
+<p>Professional trainers guide you.</p>
+</div>
+
+<div class="card">
+<h3>Strength Training</h3>
+<p>Build muscle with expert programs.</p>
+</div>
+
+</div>
+
+</section>
+
+<section id="plans">
+
+<h2>Membership Plan</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>Monthly Plan</h3>
+
+<div class="price">₹500</div>
+
+<p>Full Gym Access</p>
+
+<button class="btn"
+onclick="window.location.href='upi://pay?pa=9625356627-2@ybl&pn=Muscle Monster Gym&am=500&cu=INR'">
+Pay With UPI
+</button>
+
+</div>
+
+</div>
+
+<p style="margin-top:20px;font-size:18px;">
+UPI ID : <b>9625356627-2@ybl</b>
+</p>
+
+</section>
+
+<section id="gallery">
+
+<h2>Gym Gallery</h2>
+
+<div class="gallery">
+
+<img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61">
+<img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd">
+<img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f">
+
+</div>
+
+</section>
+
+<section>
+
+<h2>Client Reviews</h2>
+
+<div class="cards">
+
+<div class="review">
+⭐ ⭐ ⭐ ⭐ ⭐ <br>
+Best gym and trainers.
+</div>
+
+<div class="review">
+⭐ ⭐ ⭐ ⭐ ⭐ <br>
+Great equipment and environment.
+</div>
+
+<div class="review">
+⭐ ⭐ ⭐ ⭐ ⭐ <br>
+Amazing transformation results.
+</div>
+
+</div>
+
+</section>
+
+<section id="contact">
+
+<h2>Contact Us</h2>
+
+<p>📞 9625356627</p>
+
+<p>📍 Add. House no. 258, D-Block, 15 futa Road, Rajeev Nagar, Begumpur, Delhi-86</p>
+
+<button class="btn"
+onclick="window.location.href='https://wa.me/919625356627'">
+WhatsApp
+</button>
+
+<br><br>
+
+<iframe
+width="90%"
+height="300"
+style="border:0"
+src="https://maps.google.com/maps?q=Begumpur%20Delhi&t=&z=13&ie=UTF8&iwloc=&output=embed">
+</iframe>
+
+</section>
+
+<footer>
+
+<p>© 2026 Muscle Monster Gym</p>
+
+</footer>
+
+<a class="whatsapp" href="https://wa.me/919625356627">💬</a>
+
 </body>
 </html>
