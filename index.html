@@ -1,49 +1,448 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <title>Muscle Monster Gym</title>
-<link rel="stylesheet" href="style.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+}
+
+body{
+background:#0a0a0a;
+color:white;
+}
+
+/* NAVBAR */
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
+background:rgba(0,0,0,0.8);
+backdrop-filter:blur(10px);
+position:sticky;
+top:0;
+}
+
+.logo{
+font-size:24px;
+font-weight:bold;
+color:#ff2e2e;
+}
+
+nav a{
+color:white;
+margin-left:20px;
+text-decoration:none;
+font-size:16px;
+}
+
+/* HERO */
+
+.hero{
+height:95vh;
+background:url("https://images.unsplash.com/photo-1534438327276-14e5300c3a48") center/cover;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+}
+
+.hero h1{
+font-size:65px;
+}
+
+.hero p{
+font-size:20px;
+margin-top:10px;
+}
+
+.btn{
+background:#ff2e2e;
+border:none;
+padding:12px 30px;
+color:white;
+font-size:18px;
+margin-top:20px;
+cursor:pointer;
+border-radius:5px;
+}
+
+/* SECTIONS */
+
+section{
+padding:90px 10%;
+text-align:center;
+}
+
+.cards{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:30px;
+margin-top:40px;
+}
+
+.card{
+background:#161616;
+padding:25px;
+border-radius:12px;
+width:260px;
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 20px rgba(255,0,0,0.5);
+}
+
+.price{
+font-size:30px;
+color:#ff2e2e;
+margin:10px;
+}
+
+/* TRAINERS */
+
+.trainer img{
+width:100%;
+border-radius:10px;
+}
+
+/* GALLERY */
+
+.gallery{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:15px;
+margin-top:30px;
+}
+
+.gallery img{
+width:250px;
+border-radius:10px;
+}
+
+/* REVIEWS */
+
+.review{
+background:#161616;
+padding:20px;
+border-radius:10px;
+width:280px;
+}
+
+/* FORM */
+
+input,select{
+padding:10px;
+margin:8px;
+width:220px;
+}
+
+/* FOOTER */
+
+footer{
+background:#111;
+padding:40px;
+text-align:center;
+}
+
+/* WHATSAPP */
+
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+padding:15px;
+border-radius:50%;
+font-size:22px;
+color:white;
+text-decoration:none;
+}
+
+</style>
+
 </head>
+
 <body>
 
 <header>
-  <h1>Muscle Monster Gym</h1>
-  <p>Rajeev Nagar, Begumpur, Delhi</p>
-</header>
+
+<div class="logo">Muscle Monster</div>
 
 <nav>
-  <a href="#home">Home</a>
-  <a href="#about">About</a>
-  <a href="#membership">Membership</a>
-  <a href="#contact">Contact</a>
+
+<a href="#">Home</a>
+<a href="#services">Services</a>
+<a href="#trainers">Trainers</a>
+<a href="#plans">Plans</a>
+<a href="#gallery">Gallery</a>
+<a href="#reviews">Reviews</a>
+<a href="#contact">Contact</a>
+
 </nav>
 
-<section id="home">
-  <h2>Welcome to Muscle Monster Gym</h2>
-  <p>Build strength, transform your body and become unstoppable.</p>
+</header>
+
+<!-- HERO -->
+
+<div class="hero">
+
+<div>
+
+<h1>Build Your Dream Body</h1>
+
+<p>Join Muscle Monster Gym Today</p>
+
+<button class="btn">Join Now</button>
+
+</div>
+
+</div>
+
+<!-- SERVICES -->
+
+<section id="services">
+
+<h2>Our Services</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>Weight Training</h3>
+
+<p>Latest machines for strength building.</p>
+
+</div>
+
+<div class="card">
+
+<h3>Cardio Training</h3>
+
+<p>Improve stamina and endurance.</p>
+
+</div>
+
+<div class="card">
+
+<h3>Personal Training</h3>
+
+<p>Professional trainers guide you.</p>
+
+</div>
+
+</div>
+
 </section>
 
-<section id="about">
-  <h2>About Our Gym</h2>
-  <p>Professional equipment, powerful environment and affordable training.</p>
+<!-- TRAINERS -->
+
+<section id="trainers">
+
+<h2>Our Trainers</h2>
+
+<div class="cards">
+
+<div class="card trainer">
+
+<img src="https://images.unsplash.com/photo-1599058917765-a780eda07a3e">
+
+<h3>Srijal</h3>
+
+<p>Certified Fitness Trainer</p>
+
+</div>
+
+<div class="card trainer">
+
+<img src="https://images.unsplash.com/photo-1579758629938-03607ccdbaba">
+
+<h3>Rahul</h3>
+
+<p>Strength Coach</p>
+
+</div>
+
+</div>
+
 </section>
 
-<section id="membership">
-  <h2>Membership</h2>
-  <p>Only ₹500 per month</p>
-  <p>UPI: 9625356627-2@ybl</p>
+<!-- PLANS -->
+
+<section id="plans">
+
+<h2>Membership Plans</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>1 Month</h3>
+
+<div class="price">₹1000</div>
+
+<button class="btn">Join</button>
+
+</div>
+
+<div class="card">
+
+<h3>3 Months</h3>
+
+<div class="price">₹2500</div>
+
+<button class="btn">Join</button>
+
+</div>
+
+<div class="card">
+
+<h3>1 Year</h3>
+
+<div class="price">₹8000</div>
+
+<button class="btn">Join</button>
+
+</div>
+
+</div>
+
 </section>
+
+<!-- JOIN FORM -->
+
+<section>
+
+<h2>Join The Gym</h2>
+
+<form>
+
+<input type="text" placeholder="Full Name">
+
+<br>
+
+<input type="tel" placeholder="Phone Number">
+
+<br>
+
+<select>
+
+<option>Select Plan</option>
+<option>1 Month</option>
+<option>3 Months</option>
+<option>1 Year</option>
+
+</select>
+
+<br>
+
+<button class="btn">Submit</button>
+
+</form>
+
+</section>
+
+<!-- GALLERY -->
+
+<section id="gallery">
+
+<h2>Gym Gallery</h2>
+
+<div class="gallery">
+
+<img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61">
+<img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd">
+<img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f">
+
+</div>
+
+</section>
+
+<!-- REVIEWS -->
+
+<section id="reviews">
+
+<h2>Client Reviews</h2>
+
+<div class="cards">
+
+<div class="review">
+
+⭐ ⭐ ⭐ ⭐ ⭐  
+Best gym and trainers.
+
+</div>
+
+<div class="review">
+
+⭐ ⭐ ⭐ ⭐ ⭐  
+Great equipment and environment.
+
+</div>
+
+<div class="review">
+
+⭐ ⭐ ⭐ ⭐ ⭐  
+Amazing transformation results.
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
 
 <section id="contact">
-  <h2>Contact</h2>
-  <p>Address: House no. 258, D-Block, 15 futa Road, Rajeev Nagar, Begumpur, Delhi-86</p>
+
+<h2>Contact Us</h2>
+
+<p>📞 9625356627</p>
+
+<p>📍 Begumpur Delhi</p>
+
+<button class="btn"
+onclick="window.location.href='https://wa.me/919625356627'">
+
+WhatsApp
+
+</button>
+
+<br><br>
+
+<iframe
+width="90%"
+height="300"
+style="border:0"
+src="https://maps.google.com/maps?q=Begumpur%20Delhi&t=&z=13&ie=UTF8&iwloc=&output=embed">
+
+</iframe>
+
 </section>
 
 <footer>
-  <p>© Muscle Monster Gym</p>
+
+<p>© 2026 Muscle Monster Gym</p>
+
 </footer>
+
+<a class="whatsapp" href="https://wa.me/919625356627">💬</a>
 
 </body>
 </html>
+
+
