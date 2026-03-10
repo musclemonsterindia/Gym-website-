@@ -3,6 +3,7 @@
 <head>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <title>Muscle Monster Gym</title>
 
 <style>
@@ -12,35 +13,46 @@ margin:0;
 padding:0;
 box-sizing:border-box;
 font-family:Arial;
+scroll-behavior:smooth;
 }
 
 body{
-background:#0a0a0a;
+background:#0b0b0b;
 color:white;
 }
+
+/* NAVBAR */
 
 header{
 display:flex;
 justify-content:space-between;
 align-items:center;
 padding:20px 8%;
-background:rgba(0,0,0,0.8);
+background:#000;
 position:sticky;
 top:0;
+z-index:1000;
 }
 
 .logo{
-font-size:24px;
+font-size:26px;
 font-weight:bold;
 color:#ff2e2e;
 }
 
 nav a{
 color:white;
-margin-left:20px;
+margin-left:25px;
 text-decoration:none;
 font-size:16px;
+transition:0.3s;
 }
+
+nav a:hover{
+color:#ff2e2e;
+}
+
+/* HERO */
 
 .hero{
 height:95vh;
@@ -52,24 +64,31 @@ text-align:center;
 }
 
 .hero h1{
-font-size:60px;
+font-size:65px;
 }
 
 .hero p{
-font-size:20px;
+font-size:22px;
 margin-top:10px;
 }
 
 .btn{
 background:#ff2e2e;
 border:none;
-padding:12px 30px;
+padding:12px 35px;
 color:white;
 font-size:18px;
 margin-top:20px;
 cursor:pointer;
-border-radius:5px;
+border-radius:6px;
+transition:0.3s;
 }
+
+.btn:hover{
+transform:scale(1.05);
+}
+
+/* SECTIONS */
 
 section{
 padding:90px 10%;
@@ -85,56 +104,70 @@ margin-top:40px;
 }
 
 .card{
-background:#161616;
-padding:25px;
+background:#151515;
+padding:30px;
 border-radius:12px;
 width:260px;
-transition:0.3s;
+transition:0.4s;
 }
 
 .card:hover{
-transform:translateY(-10px);
-box-shadow:0 0 20px rgba(255,0,0,0.5);
+transform:translateY(-12px);
+box-shadow:0 0 25px rgba(255,0,0,0.6);
 }
 
 .price{
-font-size:30px;
+font-size:35px;
 color:#ff2e2e;
-margin:10px;
+margin:15px;
 }
+
+/* GALLERY */
 
 .gallery{
 display:flex;
 flex-wrap:wrap;
 justify-content:center;
-gap:15px;
+gap:20px;
 margin-top:30px;
 }
 
 .gallery img{
-width:250px;
+width:260px;
 border-radius:10px;
+transition:0.4s;
 }
 
+.gallery img:hover{
+transform:scale(1.05);
+}
+
+/* REVIEWS */
+
 .review{
-background:#161616;
+background:#151515;
 padding:20px;
 border-radius:10px;
 width:280px;
 }
 
+/* FOOTER */
+
 footer{
-background:#111;
+background:#000;
 padding:40px;
 text-align:center;
+margin-top:40px;
 }
+
+/* WHATSAPP */
 
 .whatsapp{
 position:fixed;
 bottom:20px;
 right:20px;
 background:#25D366;
-padding:15px;
+padding:16px;
 border-radius:50%;
 font-size:22px;
 color:white;
@@ -154,7 +187,7 @@ text-decoration:none;
 <nav>
 
 <a href="#">Home</a>
-<a href="#services">Services</a>
+<a href="#facilities">Facilities</a>
 <a href="#plans">Plans</a>
 <a href="#gallery">Gallery</a>
 <a href="#contact">Contact</a>
@@ -163,24 +196,30 @@ text-decoration:none;
 
 </header>
 
+<!-- HERO -->
+
 <div class="hero">
 
 <div>
 
-<h1>Build Your Dream Body</h1>
+<h1>Build Your Body</h1>
 
 <p>Join Muscle Monster Gym Today</p>
 
 <button class="btn"
 onclick="document.getElementById('plans').scrollIntoView();">
+
 Join Now
+
 </button>
 
 </div>
 
 </div>
 
-<section id="services">
+<!-- FACILITIES -->
+
+<section id="facilities">
 
 <h2>Gym Facilities</h2>
 
@@ -188,27 +227,29 @@ Join Now
 
 <div class="card">
 <h3>Weight Training</h3>
-<p>Latest machines for strength building.</p>
+<p>Latest strength machines</p>
 </div>
 
 <div class="card">
 <h3>Cardio Zone</h3>
-<p>Improve stamina and burn calories.</p>
+<p>Treadmills & cardio equipment</p>
 </div>
 
 <div class="card">
 <h3>Personal Training</h3>
-<p>Professional trainers guide you.</p>
+<p>Professional gym trainers</p>
 </div>
 
 <div class="card">
 <h3>Strength Training</h3>
-<p>Build muscle with expert programs.</p>
+<p>Muscle building workouts</p>
 </div>
 
 </div>
 
 </section>
+
+<!-- MEMBERSHIP -->
 
 <section id="plans">
 
@@ -218,15 +259,17 @@ Join Now
 
 <div class="card">
 
-<h3>Monthly Plan</h3>
+<h3>Monthly Gym Plan</h3>
 
 <div class="price">₹500</div>
 
-<p>Full Gym Access</p>
+<p>Unlimited Gym Access</p>
 
 <button class="btn"
 onclick="window.location.href='upi://pay?pa=9625356627-2@ybl&pn=Muscle Monster Gym&am=500&cu=INR'">
+
 Pay With UPI
+
 </button>
 
 </div>
@@ -234,10 +277,12 @@ Pay With UPI
 </div>
 
 <p style="margin-top:20px;font-size:18px;">
-UPI ID : <b>9625356627-2@ybl</b>
+UPI ID: <b>9625356627-2@ybl</b>
 </p>
 
 </section>
+
+<!-- GALLERY -->
 
 <section id="gallery">
 
@@ -248,10 +293,13 @@ UPI ID : <b>9625356627-2@ybl</b>
 <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61">
 <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd">
 <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f">
+<img src="https://images.unsplash.com/photo-1576678927484-cc907957088c">
 
 </div>
 
 </section>
+
+<!-- REVIEWS -->
 
 <section>
 
@@ -260,23 +308,25 @@ UPI ID : <b>9625356627-2@ybl</b>
 <div class="cards">
 
 <div class="review">
-⭐ ⭐ ⭐ ⭐ ⭐ <br>
-Best gym and trainers.
+⭐⭐⭐⭐⭐ <br>
+Best gym in the area.
 </div>
 
 <div class="review">
-⭐ ⭐ ⭐ ⭐ ⭐ <br>
-Great equipment and environment.
+⭐⭐⭐⭐⭐ <br>
+Great trainers and equipment.
 </div>
 
 <div class="review">
-⭐ ⭐ ⭐ ⭐ ⭐ <br>
-Amazing transformation results.
+⭐⭐⭐⭐⭐ <br>
+Amazing fitness results.
 </div>
 
 </div>
 
 </section>
+
+<!-- CONTACT -->
 
 <section id="contact">
 
@@ -284,11 +334,13 @@ Amazing transformation results.
 
 <p>📞 9625356627</p>
 
-<p>📍 Add. House no. 258, D-Block, 15 futa Road, Rajeev Nagar, Begumpur, Delhi-86</p>
+<p>📍 House no. 258, D-Block, 15 futa Road, Rajeev Nagar, Begumpur, Delhi-86</p>
 
 <button class="btn"
 onclick="window.location.href='https://wa.me/919625356627'">
+
 WhatsApp
+
 </button>
 
 <br><br>
