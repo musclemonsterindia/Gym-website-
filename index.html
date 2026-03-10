@@ -3,7 +3,6 @@
 <head>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
 <title>Muscle Monster Gym</title>
 
 <style>
@@ -27,17 +26,16 @@ header{
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:20px 8%;
+padding:15px 8%;
 background:#000;
 position:sticky;
 top:0;
 z-index:1000;
 }
 
-.logo{
-font-size:26px;
-font-weight:bold;
-color:#ff2e2e;
+.logo img{
+height:60px;
+border-radius:6px;
 }
 
 nav a{
@@ -45,7 +43,6 @@ color:white;
 margin-left:25px;
 text-decoration:none;
 font-size:16px;
-transition:0.3s;
 }
 
 nav a:hover{
@@ -63,8 +60,13 @@ justify-content:center;
 text-align:center;
 }
 
+.hero img{
+width:140px;
+margin-bottom:20px;
+}
+
 .hero h1{
-font-size:65px;
+font-size:60px;
 }
 
 .hero p{
@@ -81,11 +83,6 @@ font-size:18px;
 margin-top:20px;
 cursor:pointer;
 border-radius:6px;
-transition:0.3s;
-}
-
-.btn:hover{
-transform:scale(1.05);
 }
 
 /* SECTIONS */
@@ -112,8 +109,8 @@ transition:0.4s;
 }
 
 .card:hover{
-transform:translateY(-12px);
-box-shadow:0 0 25px rgba(255,0,0,0.6);
+transform:translateY(-10px);
+box-shadow:0 0 20px red;
 }
 
 .price{
@@ -135,20 +132,6 @@ margin-top:30px;
 .gallery img{
 width:260px;
 border-radius:10px;
-transition:0.4s;
-}
-
-.gallery img:hover{
-transform:scale(1.05);
-}
-
-/* REVIEWS */
-
-.review{
-background:#151515;
-padding:20px;
-border-radius:10px;
-width:280px;
 }
 
 /* FOOTER */
@@ -157,7 +140,6 @@ footer{
 background:#000;
 padding:40px;
 text-align:center;
-margin-top:40px;
 }
 
 /* WHATSAPP */
@@ -182,7 +164,9 @@ text-decoration:none;
 
 <header>
 
-<div class="logo">Muscle Monster</div>
+<div class="logo">
+<img src="logo.jpg">
+</div>
 
 <nav>
 
@@ -201,6 +185,8 @@ text-decoration:none;
 <div class="hero">
 
 <div>
+
+<img src="logo.jpg">
 
 <h1>Build Your Body</h1>
 
@@ -293,34 +279,6 @@ UPI ID: <b>9625356627-2@ybl</b>
 <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61">
 <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd">
 <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f">
-<img src="https://images.unsplash.com/photo-1576678927484-cc907957088c">
-
-</div>
-
-</section>
-
-<!-- REVIEWS -->
-
-<section>
-
-<h2>Client Reviews</h2>
-
-<div class="cards">
-
-<div class="review">
-⭐⭐⭐⭐⭐ <br>
-Best gym in the area.
-</div>
-
-<div class="review">
-⭐⭐⭐⭐⭐ <br>
-Great trainers and equipment.
-</div>
-
-<div class="review">
-⭐⭐⭐⭐⭐ <br>
-Amazing fitness results.
-</div>
 
 </div>
 
@@ -334,7 +292,7 @@ Amazing fitness results.
 
 <p>📞 9625356627</p>
 
-<p>📍 House no. 258, D-Block, 15 futa Road, Rajeev Nagar, Begumpur, Delhi-86</p>
+<p>📍 Add. House no. 258, D-Block, 15 futa Road, Rajeev Nagar, Begumpur, Delhi-86</p>
 
 <button class="btn"
 onclick="window.location.href='https://wa.me/919625356627'">
